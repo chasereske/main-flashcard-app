@@ -1,36 +1,36 @@
 import React, { Component } from 'react';
 import TitleBar from './TitleBar/titleBar';
-import BookViewer from './BookViewer/bookViewer';
+import FlashcardViewer from './FlashcardViewer/flashcardViewer';
 
 class App extends Component { 
     constructor(props) {
         super(props);
-        this.books = [
+        this.flashcards = [
             {title: 'Ready Player One', author: 'Ernest Cline'},
             {title: 'All the Light We Cannot See', author: 'Anthony Doerr'}, 
             {title: 'The First and Last Freedom', author: 'Jiddu Krishnamurti'},
         ];
         this.state = {
-          bookNumber: 0
+          flashcardNumber: 0
          }
     }
     
-    goToNextBook(){
-        let tempBookNumber = this.state.bookNumber; tempBookNumber++;
-        if(tempBookNumber === this.books.length){
-            tempBookNumber = 0;
+    goToNextFlashcard(){
+        let tempFlashcardNumber = this.state.flashcardNumber; tempFlashcardNumber++;
+        if(tempFlashcardNumber === this.flashcards.length){
+            tempFlashcardNumber = 0;
         }
         this.setState({
-            bookNumber: tempBookNumber
+            flashcardNumber: tempFlashcardNumber
         }); 
     }
 
-    goToPreviousBook(){
-        let tempBookNumber = this.state.bookNumber; tempBookNumber--;
-        if(tempBookNumber < 0)
-            tempBookNumber = this.books.length - 1; 
+    goToPreviousFlashcard(){
+        let tempFlashcardNumber = this.state.flashcardNumber; tempFlashcardNumber--;
+        if(tempFlashcardNumber < 0)
+            tempFlashcardNumber = this.flashcards.length - 1; 
         this.setState({
-            bookNumber: tempBookNumber
+            flashcardNumber: tempFlashcardNumber
         }); 
     }
    
@@ -38,7 +38,7 @@ class App extends Component {
         return (
             <div className = "container-fluid">
                 <TitleBar />
-                <BookViewer book={this.books[this.state.bookNumber]} nextBook={() => this.goToNextBook()} previousBook={() => this.goToPreviousBook()}/>
+                <FlashcardViewer flashcard={this.flashcards[this.state.flashcardNumber]} nextFlashcard={() => this.goToNextFlashcard()} previousFlashcard={() => this.goToPreviousFlashcard()}/>
             </div>
         );
     } 
