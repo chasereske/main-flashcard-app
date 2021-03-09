@@ -7,6 +7,9 @@ class FlashcardCreator extends Component {
             title: '',
             author: ''
         }
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
@@ -24,17 +27,17 @@ class FlashcardCreator extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={/*Call a function to handle form submission*/}>
+                <form onSubmit={this.handleSubmit}>
                     <div className="row col-align"> 
                         <div className="col-md-4">
                             <label>Title:</label>
                             <input type="text" name="title" value={this.state.title} 
-                            onChange={/*Call a function to handle title input change*/} />
+                            onChange={this.handleChange} />
                         </div>
                         <div className="col-md-4">
                             <label>Author:</label>
                             <input type="text" name="author" value={this.state.author} 
-                            onChange={/*Call a function to handle author input change*/} />
+                            onChange={this.handleChange} />
                         </div>
                         <div className="col-md-4">
                             <input type="submit" value="Add" /> 
