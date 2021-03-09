@@ -6,7 +6,7 @@ function Flashcard(props){
         <div className="book">
             <div className="cover">
                 <h1 className="title">{props.flashcard.title}</h1>
-                <h4 className="description">{props.flashcard.description}</h4>
+                <h4 className="author">{props.flashcard.author}</h4>
             </div>
         </div>
     ); 

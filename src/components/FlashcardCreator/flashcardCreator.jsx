@@ -20,13 +20,24 @@ class FlashcardCreator extends Component {
 
     handleSubmit(event) {
         event.preventDefault(); 
-        console.log(this.state.title); 
-        console.log(this.state.author);
+        const flashcard = {
+            title: this.state.title,
+            author: this.state.author
+        }
+        this.props.addNewFlashcard(flashcard);
+        this.setState({
+            title: '',
+            author: ''
+        });
     }
 
     render() {
         return (
             <div>
+                <hr />
+                <center>
+                    <h3>Add a new flashcard!</h3>
+                </center>
                 <form onSubmit={this.handleSubmit}>
                     <div className="row col-align"> 
                         <div className="col-md-4">
