@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TitleBar from './TitleBar/titleBar';
 import FlashcardViewer from './FlashcardViewer/flashcardViewer';
+import FlashcardCreator from './FlashcardCreator/flashcardCreator';
 
 class App extends Component { 
     constructor(props) {
@@ -39,6 +40,7 @@ class App extends Component {
             <div className = "container-fluid">
                 <TitleBar />
                 <FlashcardViewer flashcard={this.flashcards[this.state.flashcardNumber]} nextFlashcard={() => this.goToNextFlashcard()} previousFlashcard={() => this.goToPreviousFlashcard()}/>
+                <FlashcardCreator />
             </div>
         );
     } 
