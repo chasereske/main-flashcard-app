@@ -4,14 +4,14 @@ function BookViewer(props){
     return(
         <div className="row row-spacer"> 
             <div className="col">
-                <button onClick={() => this.goToPreviousBook()}>Previous Book</button> 
+                <button onClick={() => props.previousBook()}>Previous Book</button> 
             </div>
             <div className="col">
-                <h1>{this.books[this.state.bookNumber].title}</h1>
-                <h4>{this.books[this.state.bookNumber].author}</h4>
+                <h1>{props.book.title}</h1>
+                <h4>{props.book.author}</h4>
             </div>
             <div className="col-md-4">
-                <button onClick={() => this.goToNextBook()}>Next Book</button>
+                <button onClick={() => props.nextBook()}>Next Book</button>
             </div>
         </div>
     )
