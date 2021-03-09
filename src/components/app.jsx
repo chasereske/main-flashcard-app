@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import TitleBar from './TitleBar/titleBar';
 import FlashcardViewer from './FlashcardViewer/flashcardViewer';
 import FlashcardCreator from './FlashcardCreator/flashcardCreator';
@@ -12,9 +13,17 @@ class App extends Component {
             {title: 'The First and Last Freedom', author: 'Jiddu Krishnamurti'},
         ];
         this.state = {
-          flashcardNumber: 0
+          flashcardNumber: 0,
+          flashcard: []
          }
     }
+
+    componentDidMount(){
+        axios.get('http://localhost:5000/api/collections').then(response=> {
+        console.log(response);
+        this.setState({flashcard: response.data});
+    });    
+}
     
     addNewFlashcard(flashcard){ 
         this.flashcards.push(flashcard); 
