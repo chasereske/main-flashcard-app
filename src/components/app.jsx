@@ -26,15 +26,15 @@ class App extends Component {
 }
     
     addNewFlashcard(flashcard){ 
-        this.flashcards.push(flashcard); 
+        this.state.flashcard.push(flashcard); 
         this.setState({
-            flashcardNumber: this.flashcards.length - 1 });
+            flashcardNumber: this.state.flashcard.length - 1 });
         }
 
 
     goToNextFlashcard(){
         let tempFlashcardNumber = this.state.flashcardNumber; tempFlashcardNumber++;
-        if(tempFlashcardNumber === this.flashcards.length){
+        if(tempFlashcardNumber === this.state.flashcard.length){
             tempFlashcardNumber = 0;
         }
         this.setState({
@@ -45,7 +45,7 @@ class App extends Component {
     goToPreviousFlashcard(){
         let tempFlashcardNumber = this.state.flashcardNumber; tempFlashcardNumber--;
         if(tempFlashcardNumber < 0)
-            tempFlashcardNumber = this.flashcards.length - 1; 
+            tempFlashcardNumber = this.state.flashcard.length - 1; 
         this.setState({
             flashcardNumber: tempFlashcardNumber
         }); 
@@ -55,7 +55,7 @@ class App extends Component {
         return (
             <div className = "container-fluid">
                 <TitleBar />
-                <FlashcardViewer flashcard={this.flashcards[this.state.flashcardNumber]} nextFlashcard={() => this.goToNextFlashcard()} previousFlashcard={() => this.goToPreviousFlashcard()}/>
+                <FlashcardViewer flashcard={this.state.flashcard[this.state.flashcardNumber]} nextFlashcard={() => this.goToNextFlashcard()} previousFlashcard={() => this.goToPreviousFlashcard()}/>
                 <FlashcardCreator addNewFlashcard = {this.addNewFlashcard.bind(this)}/>
             </div>
         );
