@@ -5,8 +5,10 @@ function Flashcard(props){
     return (
         <div className="book">
             <div className="cover">
-                <h1 className="title">{props.flashcard.title}</h1>
-                <h4 className="author">{props.flashcard.author}</h4>
+                <h1 className="title">{props.flashcard.category}</h1>
+                <h4 className="author">{props.flashcard.cardnumber}</h4>
+                <h4 className="author">{props.flashcard.question}</h4>
+                <h4 className="author">{props.flashcard.answer}</h4>
             </div>
         </div>
     ); 
