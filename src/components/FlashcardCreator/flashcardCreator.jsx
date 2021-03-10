@@ -4,8 +4,10 @@ class FlashcardCreator extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            title: '',
-            author: ''
+            category: '',
+            cardNumber: '',
+            question: '',
+            answer: ''
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -21,13 +23,17 @@ class FlashcardCreator extends Component {
     handleSubmit(event) {
         event.preventDefault(); 
         const flashcard = {
-            title: this.state.title,
-            author: this.state.author
+            category: this.state.category,
+            cardNumber: this.state.cardNumber,
+            question: this.state.question,
+            answer: this.state.answer
         }
         this.props.addNewFlashcard(flashcard);
         this.setState({
-            title: '',
-            author: ''
+            category: '',
+            cardNumber: '',
+            question: '',
+            answer: ''
         });
     }
 
@@ -41,13 +47,23 @@ class FlashcardCreator extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div className="row col-align"> 
                         <div className="col-md-4">
-                            <label>Title:</label>
-                            <input type="text" name="title" value={this.state.title} 
+                            <label>Category:</label>
+                            <input type="text" name="category" value={this.state.category} 
                             onChange={this.handleChange} />
                         </div>
                         <div className="col-md-4">
-                            <label>Author:</label>
-                            <input type="text" name="author" value={this.state.author} 
+                            <label>Card Number:</label>
+                            <input type="text" name="cardNumber" value={this.state.cardNumber} 
+                            onChange={this.handleChange} />
+                        </div>
+                        <div className="col-md-4">
+                            <label>Question:</label>
+                            <input type="text" name="author" value={this.state.question} 
+                            onChange={this.handleChange} />
+                        </div>
+                        <div className="col-md-4">
+                            <label>Answer:</label>
+                            <input type="text" name="answer" value={this.state.answer} 
                             onChange={this.handleChange} />
                         </div>
                         <div className="col-md-4">
