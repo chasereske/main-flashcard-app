@@ -17,9 +17,9 @@ class App extends Component {
           flashcard: []
          }
     }
-
+    
     componentDidMount(){
-        axios.get('http://localhost:5000/api/collections').then(response=> {
+        axios.get('http://localhost:5000/api/collections/60416e2759021da547bf82c5/flashcards').then(response=> {
         console.log(response);
         this.setState({flashcard: response.data});
     });    
